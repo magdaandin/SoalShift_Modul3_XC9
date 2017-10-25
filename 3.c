@@ -18,7 +18,7 @@ void* makan1(void *arg)
  
     
  
-    return NULL;
+    
 }
 
 
