@@ -13,8 +13,8 @@ int main()
       char *word2 ;
 scanf("%s%s",word1,word2);
     
-     pthread_create( &thread1, NULL, count, (void*)word1);//membuat thread pertama
-     pthread_create( &thread2, NULL, count, (void*) word2);//membuat thread kedua
+     pthread_create( &thread1, NULL, count, word1);//membuat thread pertama
+     pthread_create( &thread2, NULL, count, word2);//membuat thread kedua
      
      pthread_join( thread1, NULL);
      pthread_join( thread2, NULL); 
