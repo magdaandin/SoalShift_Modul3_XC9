@@ -3,7 +3,6 @@
 #include <sys/shm.h>
 #include <unistd.h>
 #include <string.h>
-
 void main()
 { char iter[100];
 int jum,input;
@@ -35,7 +34,7 @@ int shmid6 = shmget(key6, sizeof(int), IPC_CREAT | 0666);
 *value6=0;
 while(1){
 printf("Tekan 1 untuk lihat senjata\n");
-printf("Tekan 2 untuk tambah senjata\n");
+printf("Tekan 2 untuk beli senjata\n");
 
 scanf("%d",&input);
 
@@ -53,22 +52,28 @@ printf("MINE %d\n",*value6);
 else if(input==2){
 { scanf("%s%d",iter,&jum);
 	if(strcmp(iter,"MP4A1")==0)
-	{ *value1+=jum;
+	{if(*value1==0)printf("barang di stock tidak cukup\n"); 
+	*value1-=jum;
 	}
 	else if(strcmp(iter,"PM2-V1")==0)
-	{ *value2+=jum;
+	{if(*value2==0)printf("barang di stock tidak cukup\n");  
+	*value2-=jum;
 	}
 	else if(strcmp(iter,"SPR-3")==0)
-	{ *value3+=jum;
+	{if(*value3==0)printf("barang di stock tidak cukup\n");  
+	*value3-=jum;
 	}
 	else if(strcmp(iter,"SS2-V5")==0)
-	{ *value4+=jum;
+	{if(*value4==0)printf("barang di stock tidak cukup\n");  
+	*value4-=jum;
 	}
 else if(strcmp(iter,"SPG1-V3")==0)
-	{ *value5+=jum;
+	{if(*value5==0)printf("barang di stock tidak cukup\n");  
+	*value5-=jum;
 	}
 else 
-	{ *value6+=jum;
+	{if(*value6==0)printf("barang di stock tidak cukup\n");  
+	*value6-=jum;
 	}
 	}
 }
