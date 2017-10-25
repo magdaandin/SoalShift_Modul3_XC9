@@ -39,6 +39,7 @@ FILE *fo, *fw;
 		
 	}
 	}
+	printf("%s = %d", string, total);
 	fclose(fo);
 	fclose(fw);
 
